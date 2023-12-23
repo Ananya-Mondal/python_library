@@ -3,9 +3,7 @@ import book.book as btmaster
 import issue.issue as isu
 def main():
     i=1
-    slst=[]
-    blbt=[]
-    lsis=[]
+    
     
     a=stmaster.student()
     b=btmaster.book()
@@ -192,4 +190,5 @@ def main():
         else:
             print ("invalide input , reinput your choice :")
             
-main()      
+if __name__=="__main__":
+    main()
