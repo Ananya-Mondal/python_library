@@ -1,5 +1,6 @@
-from datetime import date
+from datetime import datetime,date
 from datetime import timedelta
+
 import mysql.connector as mydb
 class issue:
     def opendb(self):
@@ -58,8 +59,10 @@ class issue:
        
     def bookreturn(self,rn,bn):
         self.opendb()
-        csdt=date.today()
+        csdt=datetime.now()
         fine=0
+       
+        
              
 
         sql="Select returndate from issue where rollno=%s and bookid=%s;"

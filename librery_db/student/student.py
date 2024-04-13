@@ -11,12 +11,12 @@ class student:
         
     def entry(self,r,n):
         self.opendb()
-        sql="Select count(*) from table1 where roll=%s"
+        sql="Select count(*) from students where roll=%s"
         var=(r,)
         self.__mycur.execute(sql,var)
         res=self.__mycur.fetchone()
         if res[0]==0:
-            sql="insert into table1(roll,name) values(%s,%s);"
+            sql="insert into students(roll,name) values(%s,%s);"
             var=(r,n)
             self.__mycur.execute(sql,var)
             self.__db.commit()
@@ -29,14 +29,14 @@ class student:
 
     def display(self):
         self.opendb()
-        sql="select * from table1 ;"
+        sql="select * from students ;"
         self.__mycur.execute(sql)
         result=self.__mycur.fetchall()
         self.closedb()
         return result
     def search(self,r):
         self.opendb()
-        sql="select * from table1 where roll=%s;"
+        sql="select * from students where roll=%s;"
         var=(r,)
         self.__mycur.execute(sql,var)
         result=self.__mycur.fetchall()
@@ -44,7 +44,7 @@ class student:
         return result
     def update(self,n,r):
         self.opendb()
-        sql="update table1 set name=%s where roll=%s;"
+        sql="update students set name=%s where roll=%s;"
         var=(n,r)
         self.__mycur.execute(sql,var)
         self.__db.commit()
@@ -55,7 +55,7 @@ class student:
         self.closedb()
     def delete(self,r):
         self.opendb()
-        sql="delete FROM table1 where roll=%s;"
+        sql="delete FROM students where roll=%s;"
         var=(r,)
         self.__mycur.execute(sql,var)
         self.__db.commit()
